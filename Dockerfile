@@ -6,11 +6,11 @@ FROM maven:3.9-eclipse-temurin-17 AS builder
 WORKDIR /app
 
 # Copy pom.xml trước để cache dependencies
-COPY pom.xml .
+COPY student-management/pom.xml .
 RUN mvn dependency:go-offline -B
 
 # Copy source code và build
-COPY src ./src
+COPY student-management/src ./src
 RUN mvn package -DskipTests -B
 
 # ================================
