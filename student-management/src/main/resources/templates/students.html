@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Danh Sách Sinh Viên</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    th { background-color: #f2f2f2; }
+    .toolbar { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .btn { padding: 6px 14px; cursor: pointer; border: none; border-radius: 4px; font-size: 14px; }
+    .btn-primary { background-color: #4CAF50; color: white; text-decoration: none; }
+    .btn-search { background-color: #2196F3; color: white; }
+    .btn-detail { background-color: #FF9800; color: white; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <h1>Danh Sách Sinh Viên (SSR)</h1>
+
+  <!-- Toolbar: tìm kiếm + nút Thêm mới -->
+  <div class="toolbar">
+    <form action="/students" method="GET" style="display:flex; gap:8px;">
+      <input type="text" name="keyword" th:value="${keyword}" placeholder="Nhập tên sinh viên..." style="padding:6px; width:250px;" />
+      <button type="submit" class="btn btn-search">Tìm kiếm</button>
+    </form>
+    <a href="/students/new" class="btn btn-primary">+ Thêm mới</a>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Họ và Tên</th>
+        <th>Email</th>
+        <th>Tuổi</th>
+        <th>Hành động</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="student : ${dsSinhVien}">
+        <td th:text="${student.id}">ID Mẫu</td>
+        <td th:text="${student.name}">Tên Mẫu</td>
+        <td th:text="${student.email}">Email Mẫu</td>
+        <td th:text="${student.age}">0</td>
+        <td>
+          <a th:href="@{/students/{id}(id=${student.id})}" class="btn btn-detail">Xem chi tiết</a>
+        </td>
+      </tr>
+      <tr th:if="${#lists.isEmpty(dsSinhVien)}">
+        <td colspan="5" style="text-align:center;">Không tìm thấy sinh viên nào.</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

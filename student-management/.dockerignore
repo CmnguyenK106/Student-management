@@ -1,0 +1,20 @@
+# Build output
+target/
+
+# Git
+.git
+.gitignore
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+
+# Env file - không đưa vào Docker image
+.env
+
+# OS
+.DS_Store
+Thumbs.db

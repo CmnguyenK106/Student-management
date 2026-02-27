@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Chi Tiết Sinh Viên</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    .card { max-width: 480px; border: 1px solid #ddd; border-radius: 8px; padding: 24px; margin-top: 20px; }
+    .field { margin-bottom: 14px; }
+    .label { font-weight: bold; color: #555; display: inline-block; width: 100px; }
+    .value { color: #222; }
+    .btn { padding: 6px 14px; cursor: pointer; border: none; border-radius: 4px; font-size: 14px; text-decoration: none; display: inline-block; }
+    .btn-back   { background-color: #9E9E9E; color: white; }
+    .btn-edit   { background-color: #2196F3; color: white; }
+    .btn-delete { background-color: #f44336; color: white; }
+    .actions { margin-top: 20px; display: flex; gap: 10px; align-items: center; }
+  </style>
+</head>
+<body>
+  <h1>Chi Tiết Sinh Viên</h1>
+
+  <div class="card">
+    <div class="field">
+      <span class="label">ID:</span>
+      <span class="value" th:text="${student.id}">—</span>
+    </div>
+    <div class="field">
+      <span class="label">Họ và Tên:</span>
+      <span class="value" th:text="${student.name}">—</span>
+    </div>
+    <div class="field">
+      <span class="label">Email:</span>
+      <span class="value" th:text="${student.email}">—</span>
+    </div>
+    <div class="field">
+      <span class="label">Tuổi:</span>
+      <span class="value" th:text="${student.age}">—</span>
+    </div>
+  </div>
+
+  <div class="actions">
+    <a th:href="@{/students/{id}/edit(id=${student.id})}" class="btn btn-edit">✏ Chỉnh sửa</a>
+
+    <!-- Form xóa với confirm dialog -->
+    <form th:action="@{/students/{id}/delete(id=${student.id})}" method="POST"
+          onsubmit="return confirm('Bạn có chắc chắn muốn xóa sinh viên này không?');">
+      <button type="submit" class="btn btn-delete">🗑 Xóa</button>
+    </form>
+
+    <a href="/students" class="btn btn-back">← Quay lại danh sách</a>
+  </div>
+</body>
+</html>
