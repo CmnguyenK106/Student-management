@@ -14,18 +14,6 @@ Hệ thống quản lý sinh viên được xây dựng với **Spring Boot**, *
 
 ---
 
-## Công nghệ sử dụng
-
-| Thành phần | Công nghệ |
-|-----------|-----------|
-| Backend | Java 17, Spring Boot 4 |
-| Template Engine | Thymeleaf (SSR) |
-| ORM | Spring Data JPA / Hibernate |
-| Database | PostgreSQL (Neon.tech) |
-| Build tool | Maven |
-| Containerization | Docker (multi-stage build) |
-| Deploy | Render |
-
 ## Hướng dẫn chạy dự án
 
 ### Yêu cầu
