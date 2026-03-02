@@ -100,6 +100,14 @@ Với giá trị create, mỗi lần khởi động, Hibernate sẽ xóa toàn b
 
 ![Danh sách sinh viên](assets/XoaSV.png)
 
+### Thêm sinh viên
+
+![Danh sách sinh viên](assets/ThemSV.png)
+
+### Tìm kiếm sinh viên
+
+![Danh sách sinh viên](assets/TimKiemSV.png)
+
 
 
 
